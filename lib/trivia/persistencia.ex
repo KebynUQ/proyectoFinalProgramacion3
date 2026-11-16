@@ -76,4 +76,95 @@ defmodule Trivia.Persistencia do
     linea = Jason.encode!(resultado) <> "\n"
     {:reply, File.write(estado.archivo_resultados, linea, [:append]), estado}
   end
+
+  defp leer_historial(ruta) do
+    case File.open(ruta, [:read], fn archivo ->
+           archivo
+           |> IO.stream(:line)
+           |> Enum.with_index(1)
+           |> Enum.reduce({:ok, []}, fn {linea, numero}, resultado ->
+             case resultado do
+               {:error, _} ->
+                 resultado
+
+               {:ok, acumulado} ->
+                 if String.trim(linea) == "" do
+                   {:ok, acumulado}
+                 else
+                   case Jason.decode(linea) do
+                     {:ok, registro} ->
+                       if registro_valido?(registro) do
+                         {:ok, [registro | acumulado]}
+                       else
+                         {:error, "Registro inválido en results.log, línea #{numero}"}
+                       end
+
+                     _ ->
+                       {:error, "Registro inválido en results.log, línea #{numero}"}
+                   end
+                 end
+             end
+           end)
+         end) do
+      {:ok, {:ok, registros}} -> {:ok, Enum.reverse(registros)}
+      {:ok, error} -> error
+      {:error, motivo} -> {:error, "No se pudo leer results.log: #{inspect(motivo)}"}
+    end
+  end
+
+  defp leer_contador(ruta, registros) do
+    mayor_historial =
+      registros
+      |> Enum.map(fn registro -> numero_id(registro["id"]) end)
+      |> Enum.max(fn -> 1000 end)
+
+    case File.read(ruta) do
+      {:ok, texto} ->
+        case Integer.parse(String.trim(texto)) do
+          {numero, ""} when numero >= 1000 -> {:ok, max(numero, mayor_historial)}
+          _ -> {:error, "last_game_id.txt inválido"}
+        end
+
+      {:error, :enoent} ->
+        {:ok, mayor_historial}
+
+      {:error, motivo} ->
+        {:error, "No se pudo leer last_game_id.txt: #{inspect(motivo)}"}
+    end
+  end
+
+  defp numero_id("P-" <> numero) do
+    case Integer.parse(numero) do
+      {valor, ""} when valor >= 1001 -> valor
+      _ -> :error
+    end
+  end
+
+  defp numero_id(_), do: :error
+
+  defp registro_valido?(%{
+         "fecha" => fecha,
+         "id" => id,
+         "creador" => creador,
+         "tema" => tema,
+         "nivel" => nivel,
+         "ganadores" => ganadores,
+         "puntajes" => puntajes
+       })
+       when is_binary(fecha) and is_binary(id) and is_binary(creador) and
+              is_binary(tema) and is_list(ganadores) and is_map(puntajes) do
+    numero_id(id) != :error and
+      fecha != "" and creador != "" and tema != "" and
+      nivel in ["basico", "intermedio", "avanzado"] and
+      map_size(puntajes) > 0 and
+      Enum.all?(puntajes, fn {usuario, puntos} ->
+        is_binary(usuario) and is_integer(puntos)
+      end) and
+      ganadores != [] and
+      Enum.all?(ganadores, fn usuario ->
+        is_binary(usuario) and Map.has_key?(puntajes, usuario)
+      end)
+  end
+
+  defp registro_valido?(_), do: false
 end
