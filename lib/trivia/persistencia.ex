@@ -34,4 +34,25 @@ defmodule Trivia.Persistencia do
       error -> {:stop, {:datos_invalidos, error}}
     end
   end
+
+  def handle_call({:registrar, usuario, clave}, _desde, estado) do
+    case Map.fetch(estado.usuarios, usuario) do
+      {:ok, ^clave} ->
+        {:reply, {:ok, :existente}, estado}
+
+      {:ok, _otra} ->
+        {:reply, {:error, "Clave incorrecta"}, estado}
+
+      :error ->
+        nuevos = Map.put(estado.usuarios, usuario, clave)
+
+        case File.write(estado.archivo_usuarios, Jason.encode!(nuevos)) do
+          :ok ->
+            {:reply, {:ok, :nuevo}, %{estado | usuarios: nuevos}}
+
+          {:error, motivo} ->
+            {:reply, {:error, "No se pudo guardar usuario: #{inspect(motivo)}"}, estado}
+        end
+    end
+  end
 end
