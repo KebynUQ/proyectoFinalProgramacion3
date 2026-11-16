@@ -108,4 +108,42 @@ defmodule Trivia.Cliente do
       _ -> {:error, "Comando inválido. Escribe help"}
     end
   end
+
+  defp parametros_partida(parametros) do
+    opciones =
+      Enum.reduce(parametros, %{}, fn parametro, mapa ->
+        case String.split(parametro, "=", parts: 2) do
+          [clave, valor] -> Map.put(mapa, clave, valor)
+          _ -> mapa
+        end
+      end)
+
+    with tema when is_binary(tema) and tema != "" <- Map.get(opciones, "tema"),
+         {cantidad, ""} <- Integer.parse(Map.get(opciones, "preguntas", "")),
+         {tiempo, ""} <- Integer.parse(Map.get(opciones, "tiempo", "")) do
+      {:create_game, tema, cantidad, tiempo}
+    else
+      _ -> {:error, "Formato: create_game tema=ciencia preguntas=5 tiempo=15"}
+    end
+  end
+
+  defp ayuda do
+    """
+    Comandos:
+      connect <usuario> <clave>
+      disconnect
+      create_game tema=<tema> preguntas=<n> tiempo=<segundos>
+      add_bot facil
+      add_bot dificil
+      start_game
+      answer A | B | C | D
+      lifeline 5050  (dos opciones; sin bono de rapidez)
+      lifeline doble (duplica puntos positivos o negativos)
+      leave_game
+      score
+      ranking [tema]
+      help
+      salir
+    """
+  end
 end
