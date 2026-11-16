@@ -294,5 +294,98 @@ defmodule Trivia.Partida do
   end
 
   def handle_info(_otro, estado), do: {:noreply, estado}
+ def terminate(_motivo, estado) do
+    Enum.each(estado.bots, fn bot -> send(bot.pid, :detener) end)
+    :ok
+  end
 
+  defp registrar_respuesta(estado, usuario, letra) do
+    letra = String.upcase(String.trim(letra))
+
+    case validar_respuesta(estado, usuario, letra) do
+      :ok ->
+        restante = tiempo_restante(estado)
+
+        if restante == 0 do
+          {estado, {:error, "El tiempo de la pregunta se agotó"}}
+        else
+          guardar_respuesta(estado, usuario, letra, restante)
+        end
+
+      error -> {estado, error}
+    end
+  end
+
+  defp guardar_respuesta(estado, usuario, letra, restante) do
+    if usuario == estado.creador and estado.opciones_ronda_5050 != nil and
+         not Map.has_key?(estado.opciones_ronda_5050, letra) do
+      {estado, {:error, "Esa opción fue eliminada por el comodín 50/50"}}
+    else
+      entrada = %{letra: letra, restantes_ms: restante}
+      nuevo = %{estado | respuestas: Map.put(estado.respuestas, usuario, entrada)}
+      cantidad = 1 + length(estado.bots)
+      completo = map_size(nuevo.respuestas) == cantidad
+      nuevo = if completo, do: cerrar_ronda(nuevo), else: nuevo
+      {nuevo, {:ok, "Respuesta registrada"}}
+    end
+  end
+
+  defp cerrar_ronda(estado) do
+    if estado.timer != nil, do: Process.cancel_timer(estado.timer)
+    pregunta = Enum.at(estado.preguntas, estado.indice)
+    nombres = [estado.creador | Enum.map(estado.bots, fn bot -> bot.nombre end)]
+
+    {nuevos_puntajes, resumen} = Enum.reduce(nombres, {estado.puntajes, []}, fn nombre, {puntajes, filas} ->
+      respuesta = Map.get(estado.respuestas, nombre)
+
+      cambio =
+        case respuesta do
+          nil -> 0
+          %{letra: letra, restantes_ms: restante} ->
+            Trivia.Puntaje.calcular_con_comodines(
+              pregunta["nivel"], letra, pregunta["respuesta"], restante, estado.tiempo_ms,
+              nombre == estado.creador and estado.ronda_5050,
+              nombre == estado.creador and estado.ronda_doble
+            )
+        end
+
+      puntajes = Map.update!(puntajes, nombre, fn previo -> previo + cambio end)
+      fila = %{nombre: nombre, cambio: cambio, total: Map.fetch!(puntajes, nombre)}
+      {puntajes, filas ++ [fila]}
+    end)
+
+    enviar_todos(estado, :cierre, %{
+      ronda: estado.indice + 1,
+      correcta: pregunta["respuesta"],
+      opcion: pregunta["opciones"][pregunta["respuesta"]],
+      resultados: resumen
+    })
+
+    nuevo = %{estado |
+      ronda_abierta: false,
+      timer: nil,
+      puntajes: nuevos_puntajes,
+      respuestas: %{},
+      indice: estado.indice + 1
+    }
+
+    if nuevo.indice >= nuevo.total do
+      send(self(), :terminar_partida)
+    else
+      Process.send_after(self(), :siguiente_ronda, 3000)
+    end
+
+    nuevo
+  end
+
+  defp enviar(receptor, tipo, mensaje), do: send(receptor, {:trivia, tipo, mensaje})
+
+  defp tiempo_restante(estado) do
+    max(0, estado.tiempo_ms - (System.monotonic_time(:millisecond) - estado.inicio_ms))
+  end
+
+  defp enviar_todos(estado, tipo, mensaje) do
+    enviar(estado.receptor, tipo, mensaje)
+    Enum.each(estado.bots, fn bot -> enviar(bot.pid, tipo, mensaje) end)
+  end
 end
