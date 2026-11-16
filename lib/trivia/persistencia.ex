@@ -55,4 +55,25 @@ defmodule Trivia.Persistencia do
         end
     end
   end
+
+  def handle_call(:historial, _desde, estado) do
+    {:reply, leer_historial(estado.archivo_resultados), estado}
+  end
+
+  def handle_call(:siguiente_id, _desde, estado) do
+    siguiente = estado.ultimo_id + 1
+
+    case File.write(estado.archivo_contador, Integer.to_string(siguiente)) do
+      :ok ->
+        {:reply, {:ok, "P-#{siguiente}"}, %{estado | ultimo_id: siguiente}}
+
+      {:error, motivo} ->
+        {:reply, {:error, "No se pudo reservar el ID de partida: #{inspect(motivo)}"}, estado}
+    end
+  end
+
+  def handle_call({:guardar, resultado}, _desde, estado) do
+    linea = Jason.encode!(resultado) <> "\n"
+    {:reply, File.write(estado.archivo_resultados, linea, [:append]), estado}
+  end
 end
