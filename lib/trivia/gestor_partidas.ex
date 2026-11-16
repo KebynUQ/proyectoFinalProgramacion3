@@ -68,4 +68,114 @@ defmodule Trivia.GestorPartidas do
   def handle_call({:abandonar, usuario}, _desde, estado) do
     con_partida(estado, usuario, fn pid -> Trivia.Partida.abandonar(pid) end)
   end
+
+  def handle_cast({:abandonar, usuario}, estado) do
+    case Map.fetch(estado.por_usuario, usuario) do
+      {:ok, id} ->
+        meta = Map.fetch!(estado.partidas, id)
+
+        if Process.alive?(meta.pid) do
+          try do
+            Trivia.Partida.abandonar(meta.pid)
+          catch
+            :exit, _ -> :ok
+          end
+        end
+
+        {:noreply, estado}
+
+      :error ->
+        {:noreply, estado}
+    end
+  end
+
+  def handle_cast({:registrar_partida, id, pid}, estado) do
+    case Map.fetch(estado.partidas, id) do
+      {:ok, meta} when meta.pid != pid ->
+        send(
+          meta.receptor,
+          {:trivia, :aviso,
+           "La partida #{id} falló y se reinició desde cero. Agrega los bots e inicia nuevamente."}
+        )
+
+        partidas = Map.put(estado.partidas, id, %{meta | pid: pid})
+        {:noreply, %{estado | partidas: partidas}}
+
+      _ ->
+        {:noreply, estado}
+    end
+  end
+
+  def handle_cast({:terminada, id}, estado) do
+    case Map.pop(estado.partidas, id) do
+      {nil, _} ->
+        {:noreply, estado}
+
+      {meta, nuevas_partidas} ->
+        DynamicSupervisor.terminate_child(Trivia.SupervisorPartidas, meta.pid)
+
+        {:noreply,
+         %{
+           estado
+           | partidas: nuevas_partidas,
+             por_usuario: Map.delete(estado.por_usuario, meta.creador)
+         }}
+    end
+  end
+
+  defp iniciar_partida(estado, usuario, receptor, tema, nivel, cantidad, tiempo) do
+    case Trivia.Persistencia.siguiente_id() do
+      {:ok, id} ->
+        opciones = [
+          id: id,
+          creador: usuario,
+          receptor: receptor,
+          tema: tema,
+          nivel: nivel,
+          total: cantidad,
+          tiempo: tiempo,
+          gestor: self()
+        ]
+
+        case DynamicSupervisor.start_child(Trivia.SupervisorPartidas, {Trivia.Partida, opciones}) do
+          {:ok, pid} ->
+            meta = %{pid: pid, creador: usuario, receptor: receptor}
+
+            nuevo = %{
+              estado
+              | partidas: Map.put(estado.partidas, id, meta),
+                por_usuario: Map.put(estado.por_usuario, usuario, id)
+            }
+
+            {:reply, {:ok, "Creada #{id} (#{tema}, nivel #{nivel}). Agrega 2 o 3 bots."}, nuevo}
+
+          {:error, motivo} ->
+            {:reply, {:error, "No se pudo iniciar la partida: #{inspect(motivo)}"}, estado}
+        end
+
+      error ->
+        {:reply, error, estado}
+    end
+  end
+
+  defp con_partida(estado, usuario, funcion) do
+    case Map.fetch(estado.por_usuario, usuario) do
+      {:ok, id} ->
+        pid = estado.partidas |> Map.fetch!(id) |> Map.fetch!(:pid)
+
+        if Process.alive?(pid) do
+          try do
+            {:reply, funcion.(pid), estado}
+          catch
+            :exit, _ ->
+              {:reply, {:error, "La partida está reiniciándose; intenta nuevamente"}, estado}
+          end
+        else
+          {:reply, {:error, "La partida está reiniciándose; intenta nuevamente"}, estado}
+        end
+
+      :error ->
+        {:reply, {:error, "No estás en ninguna partida"}, estado}
+    end
+  end
 end
