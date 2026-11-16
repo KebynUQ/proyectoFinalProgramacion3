@@ -2,7 +2,7 @@ defmodule Trivia.Cliente do
   @moduledoc "Interfaz de consola sin datos ni lógica de juego en el cliente."
 
   def iniciar do
-    if node() == :nonode@nohost do
+    if node() == :"nonode@nohost" do
       IO.puts("Debes iniciar IEx con --sname, por ejemplo: iex --sname pedro -S mix")
     else
       receptor = Trivia.Receptor.iniciar()
@@ -31,7 +31,6 @@ defmodule Trivia.Cliente do
             {:error, texto} -> IO.puts("ERROR: #{texto}")
             solicitud -> solicitar(receptor, solicitud)
           end
-
           leer(receptor)
         end
     end
@@ -55,19 +54,11 @@ defmodule Trivia.Cliente do
 
     if Node.connect(servidor) do
       try do
-        case GenServer.call(
-               {Trivia.Servidor, servidor},
-               {:solicitar, receptor, solicitud},
-               15_000
-             ) do
+        case GenServer.call({Trivia.Servidor, servidor}, {:solicitar, receptor, solicitud}, 15_000) do
           {:ok, texto} ->
             if not match?({:lifeline, "5050", _}, solicitud), do: IO.puts(texto)
-
-          {:error, texto} ->
-            IO.puts("ERROR: #{texto}")
-
-          otro ->
-            IO.inspect(otro)
+          {:error, texto} -> IO.puts("ERROR: #{texto}")
+          otro -> IO.inspect(otro)
         end
       catch
         :exit, _ -> IO.puts("ERROR: el servidor no responde")
@@ -110,13 +101,12 @@ defmodule Trivia.Cliente do
   end
 
   defp parametros_partida(parametros) do
-    opciones =
-      Enum.reduce(parametros, %{}, fn parametro, mapa ->
-        case String.split(parametro, "=", parts: 2) do
-          [clave, valor] -> Map.put(mapa, clave, valor)
-          _ -> mapa
-        end
-      end)
+    opciones = Enum.reduce(parametros, %{}, fn parametro, mapa ->
+      case String.split(parametro, "=", parts: 2) do
+        [clave, valor] -> Map.put(mapa, clave, valor)
+        _ -> mapa
+      end
+    end)
 
     with tema when is_binary(tema) and tema != "" <- Map.get(opciones, "tema"),
          {cantidad, ""} <- Integer.parse(Map.get(opciones, "preguntas", "")),
