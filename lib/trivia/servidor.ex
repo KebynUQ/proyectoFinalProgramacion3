@@ -53,26 +53,15 @@ defmodule Trivia.Servidor do
     case Trivia.Persistencia.historial() do
       {:ok, historial} ->
         datos = Trivia.Nivel.estadisticas(historial, usuario)
-
-        filas =
-          datos.temas
+        filas = datos.temas
           |> Enum.sort_by(fn {tema, _puntos} -> tema end)
-          |> Enum.map(fn {tema, puntos} ->
-            "#{tema}: #{puntos} puntos (#{Trivia.Nivel.desde_puntos(puntos)})"
-          end)
+          |> Enum.map(fn {tema, puntos} -> "#{tema}: #{puntos} puntos (#{Trivia.Nivel.desde_puntos(puntos)})" end)
 
-        texto =
-          [
-            "=== #{usuario} ===",
-            "Puntaje acumulado: #{datos.puntaje}",
-            "Partidas jugadas: #{datos.partidas}" | filas
-          ]
-          |> Enum.join("\n")
-
+        texto = ["=== #{usuario} ===", "Puntaje acumulado: #{datos.puntaje}",
+          "Partidas jugadas: #{datos.partidas}" | filas] |> Enum.join("\n")
         {:ok, texto}
 
-      error ->
-        error
+      error -> error
     end
   end
 
@@ -82,8 +71,7 @@ defmodule Trivia.Servidor do
         filas = Trivia.Nivel.ranking(historial, tema)
         titulo = if tema == nil, do: "=== Ranking global ===", else: "=== Ranking #{tema} ==="
 
-        detalles =
-          filas
+        detalles = filas
           |> Enum.with_index(1)
           |> Enum.map(fn {{usuario, datos}, puesto} ->
             "#{puesto}. #{usuario}: #{datos.puntaje} puntos, #{datos.partidas} partidas"
@@ -91,8 +79,7 @@ defmodule Trivia.Servidor do
 
         {:ok, Enum.join([titulo | detalles], "\n")}
 
-      error ->
-        error
+      error -> error
     end
   end
 
