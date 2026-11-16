@@ -1,0 +1,1250 @@
+[
+  {
+    "id": "ciencia-basico-01",
+    "tema": "ciencia",
+    "nivel": "basico",
+    "enunciado": "¿Cuál es la estrella del sistema solar?",
+    "opciones": {
+      "A": "El Sol",
+      "B": "Sirius",
+      "C": "Vega",
+      "D": "Polaris"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "ciencia-basico-02",
+    "tema": "ciencia",
+    "nivel": "basico",
+    "enunciado": "¿Qué planeta es conocido como el planeta rojo?",
+    "opciones": {
+      "A": "Venus",
+      "B": "Marte",
+      "C": "Júpiter",
+      "D": "Saturno"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "ciencia-basico-03",
+    "tema": "ciencia",
+    "nivel": "basico",
+    "enunciado": "¿Cuál es la fórmula química del agua?",
+    "opciones": {
+      "A": "CO2",
+      "B": "O2",
+      "C": "H2O",
+      "D": "NaCl"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "ciencia-basico-04",
+    "tema": "ciencia",
+    "nivel": "basico",
+    "enunciado": "¿Qué órgano bombea la sangre?",
+    "opciones": {
+      "A": "Pulmón",
+      "B": "Hígado",
+      "C": "Cerebro",
+      "D": "Corazón"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "ciencia-basico-05",
+    "tema": "ciencia",
+    "nivel": "basico",
+    "enunciado": "¿En qué estado está el hielo?",
+    "opciones": {
+      "A": "Sólido",
+      "B": "Líquido",
+      "C": "Gaseoso",
+      "D": "Plasma"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "ciencia-basico-06",
+    "tema": "ciencia",
+    "nivel": "basico",
+    "enunciado": "¿Qué gas necesitamos principalmente para respirar?",
+    "opciones": {
+      "A": "Helio",
+      "B": "Oxígeno",
+      "C": "Hidrógeno",
+      "D": "Neón"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "ciencia-basico-07",
+    "tema": "ciencia",
+    "nivel": "basico",
+    "enunciado": "¿Cuántos planetas reconoce el sistema solar?",
+    "opciones": {
+      "A": "Siete",
+      "B": "Nueve",
+      "C": "Ocho",
+      "D": "Diez"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "ciencia-basico-08",
+    "tema": "ciencia",
+    "nivel": "basico",
+    "enunciado": "¿Qué fuerza nos mantiene sobre la superficie terrestre?",
+    "opciones": {
+      "A": "Magnetismo",
+      "B": "Fricción",
+      "C": "Electricidad",
+      "D": "Gravedad"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "ciencia-intermedio-01",
+    "tema": "ciencia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué unidad mide la resistencia eléctrica?",
+    "opciones": {
+      "A": "Ohmio",
+      "B": "Vatio",
+      "C": "Newton",
+      "D": "Pascal"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "ciencia-intermedio-02",
+    "tema": "ciencia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué partícula tiene carga negativa?",
+    "opciones": {
+      "A": "Protón",
+      "B": "Electrón",
+      "C": "Neutrón",
+      "D": "Fotón"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "ciencia-intermedio-03",
+    "tema": "ciencia",
+    "nivel": "intermedio",
+    "enunciado": "¿Cuál es la velocidad aproximada de la luz en el vacío?",
+    "opciones": {
+      "A": "3 000 km/s",
+      "B": "30 000 km/s",
+      "C": "300 000 km/s",
+      "D": "3 000 000 km/s"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "ciencia-intermedio-04",
+    "tema": "ciencia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué orgánulo produce la mayor parte del ATP en células eucariotas?",
+    "opciones": {
+      "A": "Ribosoma",
+      "B": "Núcleo",
+      "C": "Lisosoma",
+      "D": "Mitocondria"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "ciencia-intermedio-05",
+    "tema": "ciencia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué escala mide la acidez de una solución?",
+    "opciones": {
+      "A": "pH",
+      "B": "Richter",
+      "C": "Beaufort",
+      "D": "Kelvin"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "ciencia-intermedio-06",
+    "tema": "ciencia",
+    "nivel": "intermedio",
+    "enunciado": "¿Cuál es el símbolo químico del potasio?",
+    "opciones": {
+      "A": "P",
+      "B": "K",
+      "C": "Pt",
+      "D": "Po"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "ciencia-intermedio-07",
+    "tema": "ciencia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué tipo de enlace implica compartir electrones?",
+    "opciones": {
+      "A": "Iónico",
+      "B": "Metálico",
+      "C": "Covalente",
+      "D": "Puente de hidrógeno"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "ciencia-intermedio-08",
+    "tema": "ciencia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué estructura celular contiene el ADN nuclear?",
+    "opciones": {
+      "A": "Membrana",
+      "B": "Citoplasma",
+      "C": "Ribosoma",
+      "D": "Núcleo"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "ciencia-avanzado-01",
+    "tema": "ciencia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué ley relaciona presión y volumen a temperatura constante?",
+    "opciones": {
+      "A": "Ley de Boyle",
+      "B": "Ley de Ohm",
+      "C": "Ley de Hooke",
+      "D": "Ley de Faraday"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "ciencia-avanzado-02",
+    "tema": "ciencia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué principio afirma que no pueden conocerse exactamente posición y momento de una partícula a la vez?",
+    "opciones": {
+      "A": "Equivalencia",
+      "B": "Incertidumbre de Heisenberg",
+      "C": "Conservación de masa",
+      "D": "Arquímedes"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "ciencia-avanzado-03",
+    "tema": "ciencia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué ciclo bioquímico fija CO2 en la fotosíntesis?",
+    "opciones": {
+      "A": "Ciclo de Krebs",
+      "B": "Ciclo de Cori",
+      "C": "Ciclo de Calvin",
+      "D": "Ciclo del nitrógeno"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "ciencia-avanzado-04",
+    "tema": "ciencia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué magnitud es el gradiente negativo del potencial eléctrico?",
+    "opciones": {
+      "A": "Carga",
+      "B": "Corriente",
+      "C": "Resistencia",
+      "D": "Campo eléctrico"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "ciencia-avanzado-05",
+    "tema": "ciencia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué proceso genera ARN a partir de ADN?",
+    "opciones": {
+      "A": "Transcripción",
+      "B": "Traducción",
+      "C": "Replicación",
+      "D": "Difusión"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "ciencia-avanzado-06",
+    "tema": "ciencia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué distribución describe un conteo de sucesos independientes a tasa media constante?",
+    "opciones": {
+      "A": "Normal",
+      "B": "Poisson",
+      "C": "Uniforme",
+      "D": "Binomial negativa"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "ciencia-avanzado-07",
+    "tema": "ciencia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué propiedad se conserva en un sistema aislado bajo traslaciones temporales?",
+    "opciones": {
+      "A": "Velocidad",
+      "B": "Temperatura",
+      "C": "Energía",
+      "D": "Volumen"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "ciencia-avanzado-08",
+    "tema": "ciencia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué técnica separa moléculas por movilidad en un campo eléctrico?",
+    "opciones": {
+      "A": "Destilación",
+      "B": "Cromatografía en papel",
+      "C": "Centrifugación",
+      "D": "Electroforesis"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "historia-basico-01",
+    "tema": "historia",
+    "nivel": "basico",
+    "enunciado": "¿En qué continente surgió la civilización egipcia?",
+    "opciones": {
+      "A": "África",
+      "B": "Asia",
+      "C": "Europa",
+      "D": "Oceanía"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "historia-basico-02",
+    "tema": "historia",
+    "nivel": "basico",
+    "enunciado": "¿Quién llegó a América en la expedición castellana de 1492?",
+    "opciones": {
+      "A": "Magallanes",
+      "B": "Cristóbal Colón",
+      "C": "Vasco da Gama",
+      "D": "Marco Polo"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "historia-basico-03",
+    "tema": "historia",
+    "nivel": "basico",
+    "enunciado": "¿Qué civilización construyó Machu Picchu?",
+    "opciones": {
+      "A": "Maya",
+      "B": "Azteca",
+      "C": "Inca",
+      "D": "Romana"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "historia-basico-04",
+    "tema": "historia",
+    "nivel": "basico",
+    "enunciado": "¿En qué siglo comenzó la Primera Guerra Mundial?",
+    "opciones": {
+      "A": "XVII",
+      "B": "XVIII",
+      "C": "XIX",
+      "D": "XX"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "historia-basico-05",
+    "tema": "historia",
+    "nivel": "basico",
+    "enunciado": "¿En qué país se originó la Revolución francesa?",
+    "opciones": {
+      "A": "Francia",
+      "B": "Italia",
+      "C": "Portugal",
+      "D": "Grecia"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "historia-basico-06",
+    "tema": "historia",
+    "nivel": "basico",
+    "enunciado": "¿Qué imperio tenía a Roma como centro?",
+    "opciones": {
+      "A": "Otomano",
+      "B": "Romano",
+      "C": "Persa",
+      "D": "Mongol"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "historia-basico-07",
+    "tema": "historia",
+    "nivel": "basico",
+    "enunciado": "¿Cuál era una lengua importante del Imperio romano?",
+    "opciones": {
+      "A": "Quechua",
+      "B": "Árabe",
+      "C": "Latín",
+      "D": "Japonés"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "historia-basico-08",
+    "tema": "historia",
+    "nivel": "basico",
+    "enunciado": "¿En qué año terminó la Segunda Guerra Mundial?",
+    "opciones": {
+      "A": "1918",
+      "B": "1939",
+      "C": "1941",
+      "D": "1945"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "historia-intermedio-01",
+    "tema": "historia",
+    "nivel": "intermedio",
+    "enunciado": "¿En qué año se declaró la independencia de Colombia el 20 de julio?",
+    "opciones": {
+      "A": "1810",
+      "B": "1819",
+      "C": "1821",
+      "D": "1808"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "historia-intermedio-02",
+    "tema": "historia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué muro cayó en 1989?",
+    "opciones": {
+      "A": "Muro de Adriano",
+      "B": "Muro de Berlín",
+      "C": "Gran Muralla China",
+      "D": "Muralla de Ávila"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "historia-intermedio-03",
+    "tema": "historia",
+    "nivel": "intermedio",
+    "enunciado": "¿Quién fue el principal impulsor de la imprenta europea de tipos móviles?",
+    "opciones": {
+      "A": "Leonardo da Vinci",
+      "B": "Nicolás Copérnico",
+      "C": "Johannes Gutenberg",
+      "D": "Isaac Newton"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "historia-intermedio-04",
+    "tema": "historia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué tratado formalizó la paz con Alemania tras la Primera Guerra Mundial?",
+    "opciones": {
+      "A": "Tordesillas",
+      "B": "Utrecht",
+      "C": "Westfalia",
+      "D": "Versalles"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "historia-intermedio-05",
+    "tema": "historia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué líder encabezó la independencia de la India mediante resistencia no violenta?",
+    "opciones": {
+      "A": "Mahatma Gandhi",
+      "B": "Napoleón Bonaparte",
+      "C": "Lenin",
+      "D": "Winston Churchill"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "historia-intermedio-06",
+    "tema": "historia",
+    "nivel": "intermedio",
+    "enunciado": "¿En qué año comenzó la Revolución rusa bolchevique?",
+    "opciones": {
+      "A": "1905",
+      "B": "1917",
+      "C": "1929",
+      "D": "1945"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "historia-intermedio-07",
+    "tema": "historia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué cultura utilizaba principalmente escritura cuneiforme en Mesopotamia?",
+    "opciones": {
+      "A": "Fenicia",
+      "B": "Maya",
+      "C": "Sumeria",
+      "D": "Inca"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "historia-intermedio-08",
+    "tema": "historia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué ciudad fue capital del Imperio bizantino?",
+    "opciones": {
+      "A": "Atenas",
+      "B": "Roma",
+      "C": "Cartago",
+      "D": "Constantinopla"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "historia-avanzado-01",
+    "tema": "historia",
+    "nivel": "avanzado",
+    "enunciado": "¿En qué año se firmó la Paz de Westfalia?",
+    "opciones": {
+      "A": "1648",
+      "B": "1492",
+      "C": "1715",
+      "D": "1815"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "historia-avanzado-02",
+    "tema": "historia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué documento inglés de 1215 limitó poderes del monarca?",
+    "opciones": {
+      "A": "Bill of Rights",
+      "B": "Carta Magna",
+      "C": "Edicto de Nantes",
+      "D": "Acta de Unión"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "historia-avanzado-03",
+    "tema": "historia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué dinastía gobernó China durante gran parte del siglo XVIII?",
+    "opciones": {
+      "A": "Han",
+      "B": "Tang",
+      "C": "Qing",
+      "D": "Song"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "historia-avanzado-04",
+    "tema": "historia",
+    "nivel": "avanzado",
+    "enunciado": "¿Cuál fue el principal acuerdo del Congreso de Viena de 1815?",
+    "opciones": {
+      "A": "Abolir la monarquía francesa",
+      "B": "Crear la ONU",
+      "C": "Fundar la OTAN",
+      "D": "Restablecer el equilibrio europeo"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "historia-avanzado-05",
+    "tema": "historia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué batalla de 1815 marcó la derrota final de Napoleón?",
+    "opciones": {
+      "A": "Waterloo",
+      "B": "Trafalgar",
+      "C": "Austerlitz",
+      "D": "Marengo"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "historia-avanzado-06",
+    "tema": "historia",
+    "nivel": "avanzado",
+    "enunciado": "¿Cuál fue el centro del Imperio aqueménida?",
+    "opciones": {
+      "A": "Egipto",
+      "B": "Persia",
+      "C": "Grecia",
+      "D": "Roma"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "historia-avanzado-07",
+    "tema": "historia",
+    "nivel": "avanzado",
+    "enunciado": "¿En qué siglo ocurrió la peste negra en Europa?",
+    "opciones": {
+      "A": "XII",
+      "B": "XIII",
+      "C": "XIV",
+      "D": "XVI"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "historia-avanzado-08",
+    "tema": "historia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué revolución de 1688 cambió la sucesión del trono inglés?",
+    "opciones": {
+      "A": "Revolución industrial",
+      "B": "Revolución de 1848",
+      "C": "Revolución cultural",
+      "D": "Revolución Gloriosa"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "geografia-basico-01",
+    "tema": "geografia",
+    "nivel": "basico",
+    "enunciado": "¿Cuál es la capital de Colombia?",
+    "opciones": {
+      "A": "Bogotá",
+      "B": "Medellín",
+      "C": "Cali",
+      "D": "Barranquilla"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "geografia-basico-02",
+    "tema": "geografia",
+    "nivel": "basico",
+    "enunciado": "¿Qué océano está al oeste de Colombia?",
+    "opciones": {
+      "A": "Atlántico",
+      "B": "Pacífico",
+      "C": "Índico",
+      "D": "Ártico"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "geografia-basico-03",
+    "tema": "geografia",
+    "nivel": "basico",
+    "enunciado": "¿En qué continente está Brasil?",
+    "opciones": {
+      "A": "África",
+      "B": "Europa",
+      "C": "América del Sur",
+      "D": "Asia"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "geografia-basico-04",
+    "tema": "geografia",
+    "nivel": "basico",
+    "enunciado": "¿Cuál es el río que atraviesa Egipto?",
+    "opciones": {
+      "A": "Amazonas",
+      "B": "Danubio",
+      "C": "Tajo",
+      "D": "Nilo"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "geografia-basico-05",
+    "tema": "geografia",
+    "nivel": "basico",
+    "enunciado": "¿Cuál es el continente más extenso?",
+    "opciones": {
+      "A": "Asia",
+      "B": "Europa",
+      "C": "Oceanía",
+      "D": "Antártida"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "geografia-basico-06",
+    "tema": "geografia",
+    "nivel": "basico",
+    "enunciado": "¿Qué cordillera atraviesa Colombia?",
+    "opciones": {
+      "A": "Alpes",
+      "B": "Andes",
+      "C": "Himalaya",
+      "D": "Urales"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "geografia-basico-07",
+    "tema": "geografia",
+    "nivel": "basico",
+    "enunciado": "¿Cuál es la capital de Argentina?",
+    "opciones": {
+      "A": "Lima",
+      "B": "Montevideo",
+      "C": "Buenos Aires",
+      "D": "Quito"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "geografia-basico-08",
+    "tema": "geografia",
+    "nivel": "basico",
+    "enunciado": "¿Qué océano se ubica entre África y Australia?",
+    "opciones": {
+      "A": "Pacífico",
+      "B": "Atlántico",
+      "C": "Ártico",
+      "D": "Índico"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "geografia-intermedio-01",
+    "tema": "geografia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué línea imaginaria divide la Tierra en hemisferios norte y sur?",
+    "opciones": {
+      "A": "Ecuador",
+      "B": "Trópico de Cáncer",
+      "C": "Greenwich",
+      "D": "Meridiano 180"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "geografia-intermedio-02",
+    "tema": "geografia",
+    "nivel": "intermedio",
+    "enunciado": "¿Cuál es la capital de Canadá?",
+    "opciones": {
+      "A": "Toronto",
+      "B": "Ottawa",
+      "C": "Montreal",
+      "D": "Vancouver"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "geografia-intermedio-03",
+    "tema": "geografia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué país no tiene costa marítima?",
+    "opciones": {
+      "A": "Chile",
+      "B": "Ecuador",
+      "C": "Bolivia",
+      "D": "Perú"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "geografia-intermedio-04",
+    "tema": "geografia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué estrecho separa Europa de África en el Mediterráneo occidental?",
+    "opciones": {
+      "A": "Bering",
+      "B": "Malaca",
+      "C": "Ormuz",
+      "D": "Gibraltar"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "geografia-intermedio-05",
+    "tema": "geografia",
+    "nivel": "intermedio",
+    "enunciado": "¿Cuál es el desierto cálido más grande del planeta?",
+    "opciones": {
+      "A": "Sahara",
+      "B": "Gobi",
+      "C": "Atacama",
+      "D": "Kalahari"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "geografia-intermedio-06",
+    "tema": "geografia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué río atraviesa Budapest?",
+    "opciones": {
+      "A": "Rin",
+      "B": "Danubio",
+      "C": "Sena",
+      "D": "Loira"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "geografia-intermedio-07",
+    "tema": "geografia",
+    "nivel": "intermedio",
+    "enunciado": "¿Cuál es la capital de Nueva Zelanda?",
+    "opciones": {
+      "A": "Auckland",
+      "B": "Christchurch",
+      "C": "Wellington",
+      "D": "Hamilton"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "geografia-intermedio-08",
+    "tema": "geografia",
+    "nivel": "intermedio",
+    "enunciado": "¿En qué país está el monte Fuji?",
+    "opciones": {
+      "A": "China",
+      "B": "Corea del Sur",
+      "C": "Nepal",
+      "D": "Japón"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "geografia-avanzado-01",
+    "tema": "geografia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué proyección cartográfica conserva ángulos localmente y exagera áreas cerca de los polos?",
+    "opciones": {
+      "A": "Mercator",
+      "B": "Robinson",
+      "C": "Mollweide",
+      "D": "Goode"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "geografia-avanzado-02",
+    "tema": "geografia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué capa de la atmósfera contiene la mayor parte de los fenómenos meteorológicos?",
+    "opciones": {
+      "A": "Estratosfera",
+      "B": "Troposfera",
+      "C": "Mesosfera",
+      "D": "Termosfera"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "geografia-avanzado-03",
+    "tema": "geografia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué proceso forma un delta fluvial?",
+    "opciones": {
+      "A": "Subducción",
+      "B": "Erosión glaciar",
+      "C": "Deposición de sedimentos",
+      "D": "Vulcanismo"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "geografia-avanzado-04",
+    "tema": "geografia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué tipo de límite de placas suele formar dorsales oceánicas?",
+    "opciones": {
+      "A": "Convergente",
+      "B": "Transformante",
+      "C": "Colisión continental",
+      "D": "Divergente"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "geografia-avanzado-05",
+    "tema": "geografia",
+    "nivel": "avanzado",
+    "enunciado": "¿Cuál es el punto más profundo conocido del océano?",
+    "opciones": {
+      "A": "Abismo Challenger",
+      "B": "Fosa de Puerto Rico",
+      "C": "Fosa de Java",
+      "D": "Fosa de Perú-Chile"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "geografia-avanzado-06",
+    "tema": "geografia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué escala expresa la razón entre una distancia en el mapa y la real?",
+    "opciones": {
+      "A": "Isoterma",
+      "B": "Escala cartográfica",
+      "C": "Curva de nivel",
+      "D": "Azimut"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "geografia-avanzado-07",
+    "tema": "geografia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué corriente fría influye en las costas de Perú y Chile?",
+    "opciones": {
+      "A": "Corriente del Golfo",
+      "B": "Kuroshio",
+      "C": "Humboldt",
+      "D": "Agulhas"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "geografia-avanzado-08",
+    "tema": "geografia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué sistema de referencia emplea latitud y longitud sobre un elipsoide?",
+    "opciones": {
+      "A": "Coordenadas UTM solamente",
+      "B": "Coordenadas polares locales",
+      "C": "Coordenadas cartesianas planas",
+      "D": "Coordenadas geográficas"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "tecnologia-basico-01",
+    "tema": "tecnologia",
+    "nivel": "basico",
+    "enunciado": "¿Qué dispositivo se utiliza principalmente para escribir texto en un computador?",
+    "opciones": {
+      "A": "Teclado",
+      "B": "Monitor",
+      "C": "Parlante",
+      "D": "Impresora"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "tecnologia-basico-02",
+    "tema": "tecnologia",
+    "nivel": "basico",
+    "enunciado": "¿Qué significa CPU?",
+    "opciones": {
+      "A": "Control de Programa Universal",
+      "B": "Unidad Central de Procesamiento",
+      "C": "Código Público Único",
+      "D": "Unidad de Pantalla Central"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "tecnologia-basico-03",
+    "tema": "tecnologia",
+    "nivel": "basico",
+    "enunciado": "¿Qué componente almacena archivos de forma persistente?",
+    "opciones": {
+      "A": "Ratón",
+      "B": "Ventilador",
+      "C": "SSD",
+      "D": "Teclado"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "tecnologia-basico-04",
+    "tema": "tecnologia",
+    "nivel": "basico",
+    "enunciado": "¿Cuál de estos es un sistema operativo?",
+    "opciones": {
+      "A": "HTML",
+      "B": "JPEG",
+      "C": "USB",
+      "D": "Linux"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "tecnologia-basico-05",
+    "tema": "tecnologia",
+    "nivel": "basico",
+    "enunciado": "¿Qué extensión suele usarse para archivos de texto plano?",
+    "opciones": {
+      "A": ".txt",
+      "B": ".png",
+      "C": ".mp3",
+      "D": ".exe"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "tecnologia-basico-06",
+    "tema": "tecnologia",
+    "nivel": "basico",
+    "enunciado": "¿Qué dispositivo muestra imágenes?",
+    "opciones": {
+      "A": "Router",
+      "B": "Monitor",
+      "C": "Micrófono",
+      "D": "Escáner"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "tecnologia-basico-07",
+    "tema": "tecnologia",
+    "nivel": "basico",
+    "enunciado": "¿Qué lenguaje se usa para estructurar contenido web?",
+    "opciones": {
+      "A": "CSS",
+      "B": "SQL",
+      "C": "HTML",
+      "D": "Bash"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "tecnologia-basico-08",
+    "tema": "tecnologia",
+    "nivel": "basico",
+    "enunciado": "¿Qué periférico captura sonido?",
+    "opciones": {
+      "A": "Impresora",
+      "B": "Proyector",
+      "C": "Monitor",
+      "D": "Micrófono"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "tecnologia-intermedio-01",
+    "tema": "tecnologia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué estructura de datos usa el principio primero en entrar, primero en salir?",
+    "opciones": {
+      "A": "Cola",
+      "B": "Pila",
+      "C": "Árbol binario",
+      "D": "Grafo"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "tecnologia-intermedio-02",
+    "tema": "tecnologia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué protocolo se usa comúnmente para páginas web cifradas?",
+    "opciones": {
+      "A": "FTP",
+      "B": "HTTPS",
+      "C": "SMTP",
+      "D": "Telnet"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "tecnologia-intermedio-03",
+    "tema": "tecnologia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué operación devuelve true si al menos una condición es verdadera?",
+    "opciones": {
+      "A": "AND",
+      "B": "NOT",
+      "C": "OR",
+      "D": "XOR solamente cuando ambas"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "tecnologia-intermedio-04",
+    "tema": "tecnologia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué estructura guarda asociaciones entre claves y valores en Elixir?",
+    "opciones": {
+      "A": "Tupla únicamente",
+      "B": "Cadena",
+      "C": "Entero",
+      "D": "Mapa"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "tecnologia-intermedio-05",
+    "tema": "tecnologia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué comando de Git registra un nuevo commit?",
+    "opciones": {
+      "A": "git commit",
+      "B": "git pull",
+      "C": "git status",
+      "D": "git clone"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "tecnologia-intermedio-06",
+    "tema": "tecnologia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué representa un proceso en la BEAM?",
+    "opciones": {
+      "A": "Un archivo PDF",
+      "B": "Una unidad de ejecución concurrente",
+      "C": "Una tabla SQL",
+      "D": "Un enlace web"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "tecnologia-intermedio-07",
+    "tema": "tecnologia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué función de Elixir transforma los elementos de una lista?",
+    "opciones": {
+      "A": "Enum.count",
+      "B": "Enum.any?",
+      "C": "Enum.map",
+      "D": "Enum.sum solamente"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "tecnologia-intermedio-08",
+    "tema": "tecnologia",
+    "nivel": "intermedio",
+    "enunciado": "¿Qué extensión utiliza habitualmente un archivo de código Elixir?",
+    "opciones": {
+      "A": ".py",
+      "B": ".js",
+      "C": ".rb",
+      "D": ".ex"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "tecnologia-avanzado-01",
+    "tema": "tecnologia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué mecanismo de Elixir permite comparar estructuras en cabeceras de funciones?",
+    "opciones": {
+      "A": "Pattern matching",
+      "B": "Polimorfismo Java",
+      "C": "Herencia múltiple",
+      "D": "Preprocesador C"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "tecnologia-avanzado-02",
+    "tema": "tecnologia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué módulo OTP facilita un proceso con estado y callbacks síncronos?",
+    "opciones": {
+      "A": "File",
+      "B": "GenServer",
+      "C": "String",
+      "D": "Enum"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "tecnologia-avanzado-03",
+    "tema": "tecnologia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué estructura supervisa procesos creados dinámicamente en OTP?",
+    "opciones": {
+      "A": "Map",
+      "B": "Keyword",
+      "C": "DynamicSupervisor",
+      "D": "Tuple"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "tecnologia-avanzado-04",
+    "tema": "tecnologia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué función de Elixir programa el envío posterior de un mensaje a un proceso?",
+    "opciones": {
+      "A": "Enum.each",
+      "B": "File.write",
+      "C": "String.trim",
+      "D": "Process.send_after"
+    },
+    "respuesta": "D"
+  },
+  {
+    "id": "tecnologia-avanzado-05",
+    "tema": "tecnologia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué mecanismo impide que un resultado anterior se pierda al acumular con Enum.reduce?",
+    "opciones": {
+      "A": "Usar el acumulador retornado",
+      "B": "Usar variables mutables globales",
+      "C": "Usar goto",
+      "D": "Desactivar la recursividad"
+    },
+    "respuesta": "A"
+  },
+  {
+    "id": "tecnologia-avanzado-06",
+    "tema": "tecnologia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué función convierte un Stream en una lista materializada?",
+    "opciones": {
+      "A": "Stream.map",
+      "B": "Enum.to_list",
+      "C": "Map.get",
+      "D": "File.exists?"
+    },
+    "respuesta": "B"
+  },
+  {
+    "id": "tecnologia-avanzado-07",
+    "tema": "tecnologia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué propiedad permite a un supervisor reiniciar una tarea que falló sin reiniciar todas las demás?",
+    "opciones": {
+      "A": "Sobrecarga de operadores",
+      "B": "Persistencia local",
+      "C": "Aislamiento de procesos",
+      "D": "Polimorfismo"
+    },
+    "respuesta": "C"
+  },
+  {
+    "id": "tecnologia-avanzado-08",
+    "tema": "tecnologia",
+    "nivel": "avanzado",
+    "enunciado": "¿Qué herramienta de Elixir se usa habitualmente para ejecutar pruebas unitarias?",
+    "opciones": {
+      "A": "Ecto",
+      "B": "Plug",
+      "C": "Phoenix",
+      "D": "ExUnit"
+    },
+    "respuesta": "D"
+  }
+]
