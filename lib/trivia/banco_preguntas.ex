@@ -142,4 +142,50 @@ defmodule Trivia.BancoPreguntas do
     end
   end
 
+  def handle_call(:temas, _desde, preguntas) do
+    {:reply, preguntas |> Enum.map(&Map.get(&1, "tema")) |> Enum.uniq(), preguntas}
+  end
+
+  def handle_call({:disponibles, tema, nivel, total}, _desde, preguntas) do
+    {:reply, comprobar(preguntas, tema, nivel, total), preguntas}
+  end
+
+  def handle_call({:seleccionar, tema, nivel, total}, _desde, preguntas) do
+    resultado =
+      case comprobar(preguntas, tema, nivel, total) do
+        :ok ->
+          reparto = Trivia.Nivel.reparto(nivel, total)
+          elegidas = Enum.flat_map(["basico", "intermedio", "avanzado"], fn dificultad ->
+            preguntas
+            |> Enum.filter(fn p -> p["tema"] == tema and p["nivel"] == dificultad end)
+            |> Enum.shuffle()
+            |> Enum.take(Map.get(reparto, dificultad))
+          end)
+          {:ok, elegidas}
+
+        error -> error
+      end
+
+    {:reply, resultado, preguntas}
+  end
+
+  defp comprobar(_preguntas, _tema, _nivel, total) when not is_integer(total) or total < 1 do
+    {:error, "La cantidad de preguntas debe ser positiva"}
+  end
+
+  defp comprobar(preguntas, tema, nivel, total) do
+    if not Enum.any?(preguntas, fn p -> p["tema"] == tema end) do
+      {:error, "Tema inexistente: #{tema}"}
+    else
+      reparto = Trivia.Nivel.reparto(nivel, total)
+
+      faltan = Enum.any?(reparto, fn {dificultad, cantidad} ->
+        disponibles = Enum.count(preguntas, fn p -> p["tema"] == tema and p["nivel"] == dificultad end)
+        disponibles < cantidad
+      end)
+
+      if faltan, do: {:error, "No hay suficientes preguntas para el reparto"}, else: :ok
+    end
+  end
 end
+
