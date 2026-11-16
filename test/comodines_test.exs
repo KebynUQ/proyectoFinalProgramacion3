@@ -194,4 +194,96 @@ defmodule Trivia.ComodinesTest do
     end)
   end
 
+  test "un comodín que llega después del vencimiento no se consume" do
+    con_datos(fn ->
+      {pid, pregunta} = iniciar_partida(1, 1)
+      :ok = :sys.suspend(pid)
+      Process.sleep(900)
+      padre = self()
+      spawn(fn ->
+        send(padre, {:vencido, Trivia.Partida.usar_comodin(pid, "ana", "5050", pregunta.token)})
+      end)
+      Process.sleep(250)
+      :ok = :sys.resume(pid)
+      assert_receive {:vencido, {:error, _}}, 2000
+      refute :sys.get_state(pid).uso_5050
+    end)
+  end
+
+  test "al terminar se rechaza el comodín y un juego nuevo lo ofrece otra vez" do
+    con_datos(fn ->
+      {pid, pregunta} = iniciar_partida(1, 2)
+      assert {:ok, _} = Trivia.Partida.usar_comodin(pid, "ana", "5050", pregunta.token)
+      assert {:ok, _} = Trivia.Partida.usar_comodin(pid, "ana", "doble", pregunta.token)
+      assert_receive {:trivia, :pregunta_5050, _}
+      assert {:ok, _} = Trivia.Partida.abandonar(pid)
+      assert_receive {:trivia, :fin, _}, 1000
+      assert {:error, _} = Trivia.Partida.usar_comodin(pid, "ana", "5050", pregunta.token)
+      stop_supervised(Trivia.Partida)
+
+      opciones = [
+        id: "P-1002", creador: "ana", receptor: self(), gestor: self(),
+        tema: "ciencia", nivel: "basico", total: 1, tiempo: 2
+      ]
+      nuevo = start_supervised!({Trivia.Partida, opciones})
+      refute :sys.get_state(nuevo).uso_5050
+      refute :sys.get_state(nuevo).uso_doble
+    end)
+  end
+
+  test "el servidor rechaza un comodín solicitado con otra sesión" do
+    con_datos(fn ->
+      start_supervised!(Trivia.GestorJugadores)
+      start_supervised!({DynamicSupervisor,
+        strategy: :one_for_one, name: Trivia.SupervisorPartidas})
+      start_supervised!(Trivia.GestorPartidas)
+      start_supervised!(Trivia.Servidor)
+      receptor = self()
+      pedir = fn solicitud ->
+        GenServer.call(Trivia.Servidor, {:solicitar, receptor, solicitud})
+      end
+      assert {:ok, _} = pedir.({:connect, "ana", "123"})
+      assert {:ok, _} = pedir.({:create_game, "ciencia", 1, 2})
+      assert {:ok, _} = pedir.({:add_bot, "facil"})
+      assert {:ok, _} = pedir.({:add_bot, "dificil"})
+      assert {:ok, _} = pedir.(:start_game)
+      assert_receive {:trivia, :pregunta, pregunta}
+
+      padre = self()
+      spawn(fn ->
+        send(padre, {:ajena, GenServer.call(Trivia.Servidor,
+          {:solicitar, receptor, {:lifeline, "doble", pregunta.token}})})
+      end)
+      assert_receive {:ajena, {:error, _}}
+      assert {:ok, _} = pedir.({:lifeline, "doble", pregunta.token})
+    end)
+  end
+
+  test "un juego nuevo y una partida reiniciada recuperan los dos comodines" do
+    con_datos(fn ->
+      supervisor = start_supervised!({DynamicSupervisor,
+        strategy: :one_for_one, name: Trivia.SupervisorComodinesTest})
+      opciones = [
+        id: "P-1001", creador: "ana", receptor: self(), gestor: self(),
+        tema: "ciencia", nivel: "basico", total: 1, tiempo: 2
+      ]
+      {:ok, pid} = DynamicSupervisor.start_child(supervisor, {Trivia.Partida, opciones})
+      Trivia.Partida.agregar_bot(pid, "facil")
+      Trivia.Partida.agregar_bot(pid, "dificil")
+      Trivia.Partida.comenzar(pid)
+      assert_receive {:trivia, :pregunta, pregunta}
+      Trivia.Partida.usar_comodin(pid, "ana", "5050", pregunta.token)
+      Trivia.Partida.usar_comodin(pid, "ana", "doble", pregunta.token)
+      Process.exit(pid, :kill)
+      Process.sleep(100)
+      [{_, nuevo, _, _}] = DynamicSupervisor.which_children(supervisor)
+      assert nuevo != pid
+      refute :sys.get_state(nuevo).uso_5050
+      refute :sys.get_state(nuevo).uso_doble
+      refute :sys.get_state(nuevo).ronda_5050
+      refute :sys.get_state(nuevo).ronda_doble
+      assert {:error, _} = Trivia.Partida.usar_comodin(nuevo, "ana", "5050", nil)
+    end)
+  end
 end
+
