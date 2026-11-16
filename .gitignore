@@ -1,0 +1,23 @@
+# Archivos generados por Elixir y Mix
+/_build/
+/deps/
+/.elixir_ls/
+*.beam
+*.ez
+/erl_crash.dump
+
+# Datos locales creados al ejecutar la trivia
+/data/users.json
+/data/results.log
+/data/last_game_id.txt
+
+# Configuración privada y archivos temporales
+.env
+.env.*
+!.env.example
+*.tmp
+*.swp
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
