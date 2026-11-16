@@ -87,4 +87,25 @@ defmodule Trivia.Cliente do
       1000 -> nil
     end
   end
+
+  defp interpretar(""), do: {:local, ""}
+  defp interpretar("help"), do: {:local, ayuda()}
+  defp interpretar("disconnect"), do: :disconnect
+  defp interpretar("score"), do: :score
+  defp interpretar("ranking"), do: {:ranking, nil}
+  defp interpretar("start_game"), do: :start_game
+  defp interpretar("leave_game"), do: :leave_game
+
+  defp interpretar(comando) do
+    case String.split(comando, " ", trim: true) do
+      ["connect", usuario, clave] -> {:connect, usuario, clave}
+      ["ranking", tema] -> {:ranking, tema}
+      ["add_bot", dificultad] -> {:add_bot, dificultad}
+      ["answer", letra] -> {:answer, String.upcase(letra)}
+      ["lifeline", tipo] when tipo in ["5050", "doble"] -> {:lifeline, tipo}
+      ["lifeline" | _] -> {:error, "Usa lifeline 5050 o lifeline doble"}
+      ["create_game" | parametros] -> parametros_partida(parametros)
+      _ -> {:error, "Comando inválido. Escribe help"}
+    end
+  end
 end
