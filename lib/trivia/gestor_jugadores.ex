@@ -83,4 +83,18 @@ defmodule Trivia.GestorJugadores do
         {:noreply, estado}
     end
   end
+
+  defp quitar_sesion(estado, receptor) do
+    usuario = Map.get(estado.por_receptor, receptor)
+    ref = Map.get(estado.monitores, receptor)
+    if ref != nil, do: Process.demonitor(ref, [:flush])
+
+    %{
+      estado
+      | por_usuario: Map.delete(estado.por_usuario, usuario),
+        por_receptor: Map.delete(estado.por_receptor, receptor),
+        clientes: Map.delete(estado.clientes, receptor),
+        monitores: Map.delete(estado.monitores, receptor)
+    }
+  end
 end
